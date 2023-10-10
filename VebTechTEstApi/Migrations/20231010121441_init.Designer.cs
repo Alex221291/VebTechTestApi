@@ -12,7 +12,7 @@ using VebTechTEstApi.Data;
 namespace VebTechTEstApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231006134554_init")]
+    [Migration("20231010121441_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,14 @@ namespace VebTechTEstApi.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("RoleUser");
+                    b.ToTable("RoleUser", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            RolesId = new Guid("3cdeabd8-fc68-4c53-8b02-27321f1e67c3"),
+                            UsersId = new Guid("44b2d7af-bf9f-4a51-9eae-3dfe153ef315")
+                        });
                 });
 
             modelBuilder.Entity("VebTechTEstApi.Models.Role", b =>
@@ -61,6 +68,40 @@ namespace VebTechTEstApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c4668177-fca6-4894-b8e6-ff926c7c0e49"),
+                            DateCreated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(5996),
+                            DateUpdated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6003),
+                            IsDeleted = false,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("3cdeabd8-fc68-4c53-8b02-27321f1e67c3"),
+                            DateCreated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6068),
+                            DateUpdated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6069),
+                            IsDeleted = false,
+                            Name = "SuperAdmin"
+                        },
+                        new
+                        {
+                            Id = new Guid("2de178b4-17e0-40f5-b438-86c0affbc061"),
+                            DateCreated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6073),
+                            DateUpdated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6074),
+                            IsDeleted = false,
+                            Name = "Support"
+                        },
+                        new
+                        {
+                            Id = new Guid("3fe309fb-5d09-4f0a-ad05-2efe76280fe2"),
+                            DateCreated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6077),
+                            DateUpdated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6077),
+                            IsDeleted = false,
+                            Name = "User"
+                        });
                 });
 
             modelBuilder.Entity("VebTechTEstApi.Models.User", b =>
@@ -96,6 +137,19 @@ namespace VebTechTEstApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("44b2d7af-bf9f-4a51-9eae-3dfe153ef315"),
+                            Age = 31,
+                            DateCreated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6084),
+                            DateUpdated = new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6084),
+                            Email = "superadmin@gmail.com",
+                            IsDeleted = false,
+                            Name = "SuperAdmin",
+                            Password = "25D55AD283AA400AF464C76D713C07AD"
+                        });
                 });
 
             modelBuilder.Entity("RoleUser", b =>

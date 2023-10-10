@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VebTechTEstApi</name>
+    </assembly>
+    <members>
+        <member name="M:VebTechTEstApi.Controllers.AuthController.Auth(VebTechTEstApi.ViewModels.AuthViewModels.LoginViewModel)">
+             <summary>
+             Авторизация в системе.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /Auth
+                 {
+                     "login": "login@mail.ru", - email
+                     "password": "11111111" - пароль
+                 }
+            
+             </remarks>
+             <returns>Данные пользователя и token авторизации</returns>
+             <response code="200">Вернёт данные авторизированного пользователя
+             
+                 GET /Auth
+                 {
+                     "id": "44b2d7af-bf9f-4a51-9eae-3dfe153ef315",
+                     "name": "SuperAdmin",
+                     "age": 31,
+                     "email": "user@gmail.com",
+                     "roles": [
+                         "SuperAdmin"
+                         ],
+                     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ0YjJkN2FmLWJmOWYtNGE1MS05ZWFlLTNkZmUxNTNlZjMxNSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN1cGVyQWRtaW4iLCJuYmYiOjE2OTY5NDI4MTUsImV4cCI6MTY5Njk3ODgxNSwiaXNzIjoiTXlBdXRoU2VydmVyIiwiYXVkIjoiTXlBdXRoQ2xpZW50In0.T5zWZI-VLqKdQuduYATFglNL9I1JbIWuGBibA_azN6M"
+                 }
+             </response>
+             <response code="400">Неверные данные авторизации</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.GetUsers(VebTechTEstApi.ViewModels.UserViewModels.IndexViewModel)">
+             <summary>
+             Получение списка пользователей.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /GetUsers
+                 {
+                     "page": { - пагинация
+                                 "number": 2 - номер страницы
+                                 "size": 20 - размер страницы
+                             }
+                     "orderBy": { - сортировка
+                                 "sortField": "Name" - Столбец для сортировки
+                                 "ascending": true - вид сортировки
+                             }
+                     "AgeFilter": { - фильтр по возрасту
+                                 "min": 25 - минимальный возраст
+                                 "max": 40 - максимальный возраст
+                             }  
+                     "nameFilter": "Alex", - фильр по имени
+                     "emailFilter": "superadmin@gmail.com", - фильтр по email
+                     "roleFilter": [ - список ролей для фильтра
+                                 "dcf75e7f-1a5b-4db0-9817-888d90c1509c"
+                                 ]
+                 }
+            
+             </remarks>
+             <returns>Список пользователей</returns>
+             <response code="200">Вернёт список пользователей системы
+             
+                 GET /GetUsers
+                 {
+                     "totalItems": 1,
+                     "users": [
+                         {
+                             "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315",
+                             "name": "SuperAdmin",
+                             "age": 31,
+                             "email": "superadmin@gmail.com",
+                             "roles": [
+                                 "SuperAdmin"
+                                 ]
+                        }   
+                    ]
+                 }
+             </response>
+             <response code="400">Неверные данные фильтра</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.CreateUser(VebTechTEstApi.ViewModels.UserViewModels.UserCreateViewModel)">
+             <summary>
+             Создание пользователя.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Create
+                 {
+                     "name": "Alex", - Имя
+                     "age": 31, - Возраст
+                     "email": "superadmin@gmail.com", - электронный адресс
+                     "password": "11111111" - пароль
+                     "roles": [ - список ролей
+                                 "dcf75e7f-1a5b-4db0-9817-888d90c1509c"
+                                 ]
+                 }
+            
+             </remarks>
+             <returns>Список пользователей</returns>
+             <response code="201">Вернёт список пользователей системы
+             
+                 POST /Create
+                 {
+                     "totalItems": 1,
+                     "users": [
+                         {
+                             "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315",
+                             "name": "SuperAdmin",
+                             "age": 31,
+                             "email": "superadmin@gmail.com",
+                             "roles": [ - список ролей
+                                 "SuperAdmin"
+                                 ]
+                        }   
+                    ]
+                 }
+             </response>
+             /// <response code="404">Пользователь не найден</response>
+             <response code="400">Неверные данные</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.DeleteUser(System.String)">
+             <summary>
+             Удаление пользователя.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /Delete
+                 {
+                    "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315" - id пользователя
+                 }
+            
+             </remarks>
+             <returns>Удаление пользователя</returns>
+             <response code="200">Вернёт сообщение об успешном удалении
+             </response>
+             <response code="400">Неверные данные</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.GetById(System.String)">
+             <summary>
+             Получение данных о пользователе.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /GetOne
+                 {
+                    "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315" - id пользователя
+                 }
+            
+             </remarks>
+             <returns>Данные пользователя</returns>
+             <response code="200">Вернёт данные пользователя
+             
+                 GET /GetOne
+                 {
+                     "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315",
+                     "name": "SuperAdmin",
+                     "age": 31,
+                     "email": "superadmin@gmail.com",
+                     "roles": [
+                         "SuperAdmin"
+                         ]
+                 }   
+             </response>
+             <response code="400">Неверные данные</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.AddRole(VebTechTEstApi.ViewModels.UserViewModels.UserAddRoleViewModel)">
+             <summary>
+             Добавление роли пользователю.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PATCH /AddRole
+                 {
+                    "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315" - id пользователя
+                    "roles":[
+                         "e3d139ee-f16b-4310-8a3b-8c8ec1437266" - id роли
+                     ]
+                 }
+            
+             </remarks>
+             <returns>Данные пользователя</returns>
+             <response code="200">Данные пользователя
+             
+                 PATCH /AddRole
+                 {
+                     "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315",
+                     "name": "SuperAdmin",
+                     "age": 31,
+                     "email": "superadmin@gmail.com",
+                     "roles": [
+                         "SuperAdmin"
+                         ]
+                 } 
+             </response>
+             <response code="400">Неверные данные</response>
+        </member>
+        <member name="M:VebTechTEstApi.Controllers.UserController.UpdateUser(VebTechTEstApi.ViewModels.UserViewModels.UserUpdateViewModel)">
+             <summary>
+             Обновление данных пользователя.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PATCH /Update
+                 {
+                    "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315" - id пользователя
+                     "name": "Alex", - Имя
+                     "age": 31, - Возраст
+                     "email": "superadmin@gmail.com", - электронный адресс
+                 }
+            
+             </remarks>
+             <returns>Данные пользователя</returns>
+             <response code="200">Обновлённые данные пользователя
+             
+                 PATCH /Update
+                 {
+                     "id": "44B2D7AF-BF9F-4A51-9EAE-3DFE153EF315",
+                     "name": "SuperAdmin",
+                     "age": 31,
+                     "email": "superadmin@gmail.com",
+                     "roles": [
+                         "SuperAdmin"
+                         ]
+                 } 
+             </response>
+             <response code="400">Неверные данные</response>
+        </member>
+    </members>
+</doc>

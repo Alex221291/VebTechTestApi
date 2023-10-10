@@ -66,6 +66,27 @@ namespace VebTechTEstApi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "DateCreated", "DateUpdated", "IsDeleted", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("2de178b4-17e0-40f5-b438-86c0affbc061"), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6073), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6074), false, "Support" },
+                    { new Guid("3cdeabd8-fc68-4c53-8b02-27321f1e67c3"), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6068), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6069), false, "SuperAdmin" },
+                    { new Guid("3fe309fb-5d09-4f0a-ad05-2efe76280fe2"), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6077), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6077), false, "User" },
+                    { new Guid("c4668177-fca6-4894-b8e6-ff926c7c0e49"), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(5996), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6003), false, "Admin" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Age", "DateCreated", "DateUpdated", "Email", "IsDeleted", "Name", "Password" },
+                values: new object[] { new Guid("44b2d7af-bf9f-4a51-9eae-3dfe153ef315"), 31, new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6084), new DateTime(2023, 10, 10, 12, 14, 41, 515, DateTimeKind.Utc).AddTicks(6084), "superadmin@gmail.com", false, "SuperAdmin", "25D55AD283AA400AF464C76D713C07AD" });
+
+            migrationBuilder.InsertData(
+                table: "RoleUser",
+                columns: new[] { "RolesId", "UsersId" },
+                values: new object[] { new Guid("3cdeabd8-fc68-4c53-8b02-27321f1e67c3"), new Guid("44b2d7af-bf9f-4a51-9eae-3dfe153ef315") });
+
             migrationBuilder.CreateIndex(
                 name: "IX_RoleUser_UsersId",
                 table: "RoleUser",

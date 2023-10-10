@@ -67,3 +67,15 @@ D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\obj\Debug\net6.0\refint\Veb
 D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\obj\Debug\net6.0\VebTechTEstApi.pdb
 D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\obj\Debug\net6.0\VebTechTEstApi.genruntimeconfig.cache
 D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\obj\Debug\net6.0\ref\VebTechTEstApi.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\VebTechTEstApi.xml
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\obj\Debug\net6.0\VebTechTEstApi.xml
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\C#\тестовое\VebTechTEstApi\VebTechTEstApi\bin\Debug\net6.0\Serilog.Sinks.File.dll
